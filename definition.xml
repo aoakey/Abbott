@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BulldogDefinition id="1">
+  <name>Test Definition</name>
+  <description>This is a test</description>
+  <version>
+    <name>Test</name>
+    <number>0.1</number>
+  </version>
+  <created>
+    <createdBy>Andy</createdBy>
+    <date>10/12/2012</date>
+  </created>
+  <modified>
+    <modifiedBy>Andy</modifiedBy>
+    <date>10/12/201</date>
+  </modified>
+  <sections>
+    <section id="2">
+      <name>Section 1</name>
+      <description>This is section 1</description>
+      <newPage>false</newPage>
+
+      <controls>
+
+        <control id="3">
+          <type>Date</type>
+          <min>01/01/1960</min>
+          <max>12/12/2020</max>
+          <default>12/04/2012</default>
+          <required>true</required>
+          <name>Date of Birth</name>
+          <text>Date of Birth</text>
+          <description>Please enter your date of birth</description>
+        </control>
+
+        <control id="4">
+          <type>Time</type>
+          <length>5</length>
+          <default>16:30</default>
+          <required>true</required>
+          <name>Enter the Time</name>
+          <text>Enter the Time</text>
+          <description>This is a time field</description>
+        </control>
+
+        <control id="5">
+          <type>spinner</type>
+          <length>0</length>
+          <min>0</min>
+          <max>100</max>
+          <default>0</default>
+          <required>true</required>
+          <name>Enter a number</name>
+          <text>Enter a number</text>
+          <description>This is a time field</description>
+        </control>
+      </controls>
+    </section>
+
+    <section id="12">
+      <name>Section 2</name>
+      <description>This is section 2</description>
+      <newPage>false</newPage>
+
+      <controls>
+
+        <control id="6">
+          <type>spinner</type>          
+          <length>1</length>
+          <min>0</min>
+          <max>10</max>
+          <default>0</default>
+          <required>true</required>
+          <name>Enter a number</name>
+          <text>Enter a number</text>
+          <description>This is a time field</description>
+        </control>
+
+        <control id="7">
+          <type>spinner</type>
+          <length>2</length>
+          <min>-1</min>
+          <max>1</max>
+          <default>0</default>
+          <required>true</required>
+          <name>Enter a number</name>
+          <text>Enter a number</text>
+          <description>This is a time field</description>
+        </control>
+
+        <control id="8">
+          <type>List</type>
+          <mode>SelectOne</mode>
+          <length>1</length>
+          <size>1</size>
+          <default></default>
+          <required>true</required>
+          <name>Select one item</name>
+          <text>Select one item</text>
+          <desciption/>
+          <options>
+            <option value="">please select...</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </options>
+        </control>
+
+        <control id="9">
+          <type>List</type>
+          <mode>SelectMany</mode>
+          <length>-1</length>
+          <size>1</size>
+          <default></default>
+          <required>true</required>
+          <name>Select many items</name>
+          <text>Select many items</text>
+          <desciption/>
+          <options>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+          </options>
+        </control>
+
+        <control id="10">
+          <type>List</type>
+          <mode>SelectMany</mode>
+          <length>-1</length>
+          <size>10</size>
+          <default>
+            <value>3</value>
+            <value>6</value>
+          </default>
+          <required>true</required>
+          <name>Select many items</name>
+          <text>Select many items</text>
+          <desciption/>
+          <options>
+            <option value="">please select...</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </options>
+        </control>
+
+      </controls>
+
+    </section>
+
+    <section id="13">
+      <name>Section 3</name>
+      <description>This is section 3</description>
+      <newPage>false</newPage>
+
+      <controls>
+
+        <control id="14">
+          <type>Textbox</type>
+          <mode>normal</mode> 
+          <length>25</length>
+          <size>long</size>
+          <default>enter text</default>
+          <required>true</required>
+          <regEx></regEx>
+          <name>Normal Textbox</name>
+          <text>Normal Textbox</text>
+          <desciption></desciption>
+        </control>
+
+        <control id="15">
+          <type>Textbox</type>
+          <mode>masked</mode>
+          <length>10</length>
+          <size>medium</size>
+          <default></default>
+          <required>true</required>
+          <regEx></regEx>
+          <name>Masked Textbox</name>
+          <text>Masked Textbox</text>
+          <desciption></desciption>
+        </control>
+
+        <control id="16">
+          <type>Textbox</type>
+          <mode>multiline</mode>
+          <length>250</length>
+          <size>extralong</size>
+          <default>default text</default>
+          <required>false</required>
+          <regEx></regEx>
+          <name>Multiline Text</name>
+          <text>Multiline Text</text>
+          <desciption></desciption>
+        </control>
+
+        <control id="17">
+          <type>Toggle</type>                              
+          <default>Active</default>
+          <min>Deactivated</min>
+          <max>Active</max>          
+          <name>Toggle Switch</name>
+          <text>Toggle Switch</text>
+          <desciption></desciption>
+        </control>
+
+        <control id="18">
+          <type>Slider</type>
+          <length>4</length>
+          <default>
+              <value>10</value>
+              <value>20</value>
+              <value>40</value>
+              <value>80</value>
+          </default>
+          <min>0</min>
+          <max>100</max>
+          <name>Slider</name>
+          <text>Slider</text>
+          <desciption></desciption>
+        </control>
+
+      </controls>
+    </section>
+    
+  </sections>
+  
+</BulldogDefinition>

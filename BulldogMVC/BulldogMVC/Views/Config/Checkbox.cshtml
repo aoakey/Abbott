@@ -1,0 +1,18 @@
+﻿@model BulldogMVC.Models.ConfigContol
+
+@{
+    ViewBag.Title = "Checkbox";
+}
+
+<div id="ctrl_@Model.Id" class="control checkbox">
+    
+    <span class="text">@Html.DisplayFor(model => model.Text)</span>
+    <span class="description">@Html.DisplayFor(model => model.Description)</span>
+    <span class="controls-container">
+        <input id="Checkbox1" name="checkbox_@Model.Id type="checkbox" value="
+            @Html.DisplayFor(model => model.Default)
+        " />
+    </span>
+</div>
+
+

@@ -1,0 +1,84 @@
+﻿@model BulldogMVC.Models.ConfigContol
+           
+@{
+    ViewBag.Title = "Slider";
+    List<string> values = Model.GetValues();     
+}
+
+<div id="ctrl_@Model.Id" class="control slider">
+    
+    <span class="text">@Model.Text</span>
+    <span class="description">@Model.Description</span>
+    <span class="controls-container">       
+        <div class="slide" id="slide1"></div>
+        <br />
+        <span>
+        @{
+            for (int i = 0; i < Model.Length; i++) 
+            {
+                var css = "short v" + i.ToString();
+                var val = values[i];
+                @:Value @i <input type="text" class="@css" name="slider_@Model.Id" value="@val" />
+                @:&nbsp;
+            }                                    
+        }
+        </span>
+    </span>
+</div>
+
+
+<script language="javascript" type="text/javascript">
+
+    var doUpdate = function (event, ui) {
+        $('#slide1 .slide-back').remove();
+        $($('#slide1 a').get().reverse()).each(function (i) {
+            var bg = '#fff';
+            if (i == 1) {
+                bg = '#00f';
+            } else if (i == 2) {
+                bg = '#0f0';
+            } else if (i == 3) {
+                bg = '#f00';
+            }
+
+            $('#slide1').append($('<div></div>').addClass('slide-back').width($(this).offset().left - 5).css('background', bg));
+
+            if (typeof ui == 'undefined') {
+                //do nothing
+            } else {
+                @{
+                    for (int i = 0; i < Model.Length; i++) 
+                    {
+                        var css = ".v" + i.ToString();
+                        @:$("@css").val(ui.values[@i]);
+                    }                
+                }
+            }
+
+        });
+    };
+
+    
+    $('#slide1').slider({
+        slide: doUpdate,
+        change: doUpdate,
+        min: @Model.Min,
+        max: @Model.Max,
+        values: [
+            @{
+                for (int i = 0; i < Model.Length; i++) 
+                {
+                    if (i>0) {
+                        @:,
+                    }
+                    var val = values[i];
+                    @val
+                    
+                }
+            }
+        ]
+    });
+
+    doUpdate();    
+
+</script>

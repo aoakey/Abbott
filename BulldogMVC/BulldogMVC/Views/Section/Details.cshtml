@@ -1,0 +1,17 @@
+﻿@model BulldogMVC.Models.Section
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<hr />
+
+<h2>@Model.Name</h2>
+<p>@Model.Description</p>
+
+@{
+    foreach(BulldogMVC.Models.ConfigContol ctrl in Model.Controls) {
+        string view = "~/Views/Config/" + ctrl.Type + ".cshtml";         
+        @Html.Partial(view, Model.GetControl(ctrl.Id));
+    }
+}

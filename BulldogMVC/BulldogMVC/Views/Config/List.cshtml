@@ -1,0 +1,76 @@
+﻿@model BulldogMVC.Models.ConfigContol
+
+@{
+    ViewBag.Title = "List";
+    var ctrlId = "#List_" + Model.Id.ToString() + ".multiselect";
+}
+
+<div id="ctrl_@Model.Id" class="control list">
+    
+    <span class="text">@Html.DisplayFor(model => model.Text)</span>
+    <span class="description">@Html.DisplayFor(model => model.Description)</span>
+    
+@{
+    if ( Model.Mode == "SelectMany") 
+    {
+        if (Model.Size == "1") 
+        {       
+            @:<span class="controls-container"><select id="List_@Model.Id" name="List_@Model.Id" size="1" class="multiselect" multiple="multiple"">
+            foreach(KeyValuePair<string,string> option in Model.Options) 
+            {
+                if (Model.GetValues().Contains(option.Value))
+                {             
+                    @:<option value="@option.Value" selected="selected">@option.Key</option>
+                }
+                else 
+                {
+                    @:<option value="@option.Value">@option.Key</option>
+                }
+            }
+            @:</select></span>
+        }
+        else 
+        {
+            @:<span class="controls-container"><select id="List_@Model.Id" name="List_@Model.Id" size="@Model.Size" multiple="multiple">
+            foreach(KeyValuePair<string,string> option in Model.Options) 
+            {
+                if (Model.GetValues().Contains(option.Value))
+                {             
+                    @:<option value="@option.Value" selected="selected">@option.Key</option>
+                }
+                else 
+                {
+                    @:<option value="@option.Value">@option.Key</option>
+                }
+            }
+            @:</select></span>
+        }
+    }
+    else
+    { 
+        @:<span class="controls-container"><select id="List_@Model.Id" name="List_@Model.Id" size="@Model.Size">
+        foreach(KeyValuePair<string,string> option in Model.Options) 
+            {
+                if (Model.GetValues().Contains(option.Value))
+                {             
+                    @:<option value="@option.Value" selected="selected">@option.Key</option>
+                }
+                else 
+                {
+                    @:<option value="@option.Value">@option.Key</option>
+                }
+            }
+        @:</select></span>
+    }
+    
+}
+
+</div>
+
+<script type="text/javascript" src="/Scripts/chosen/chosen.jquery.js"></script>
+
+<script type="text/javascript" language="javascript">
+    
+    $("@ctrlId").chosen();
+    
+</script>

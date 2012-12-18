@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BulldogDefinition id="">
+  <definition>
+    <id></id>
+    <file></file>
+    <version></version>
+  </definition>
+  <version>
+    <name></name>
+    <number></number>
+  </version>
+  <created>
+    <createdBy></createdBy>
+    <date></date>
+  </created>
+  <modified>
+    <modifiedBy>test</modifiedBy>
+    <date>17/12/2012</date>
+  </modified>
+  <sections>
+    <section id="2">
+      <control id="3">04/12/2012</control>
+      <control id="4">16:30</control>
+      <control id="5">0</control>
+    </section>
+    <section id="12">
+      <control id="6">0.0</control>
+      <control id="7">0.00</control>
+      <control id="8">1</control>
+      <control id="9">
+        <values>
+          <value>Tuesday</value>
+        </values>
+      </control>
+      <control id="10">
+        <values>
+          <value>3</value>
+          <value>6</value>
+        </values>
+      </control>
+    </section>
+    <section id="13">
+      <control id="14">enter text</control>
+      <control id="15">sdgdfg</control>
+      <control id="16">default text</control>
+      <control id="17">Active</control>
+      <control id="18">
+        <values>
+          <value>10</value>
+          <value>20</value>
+          <value>40</value>
+          <value>80</value>
+        </values>
+      </control>
+    </section>
+  </sections>
+</BulldogDefinition>

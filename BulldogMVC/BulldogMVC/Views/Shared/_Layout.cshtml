@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title - My ASP.NET MVC Application</title>                
+
+        @{
+            //Scripts.Render("~/bundles/modernizr");   
+        }
+
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link rel="stylesheet" href="/Scripts/chosen/chosen.css" />
+        <link href="/Scripts/Spinner/ui.spinner.css" rel="stylesheet" type="text/css" />
+        
+        @Styles.Render("~/Content/css")     
+       
+        <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>  
+        <script type="text/javascript" src="/Scripts/Spinner/ui.spinner.js"></script>
+        <script type="text/javascript" src="/Scripts/chosen/chosen.jquery.js"></script>
+        <script type="text/javascript" src="/Scripts/Controls.js"></script>                        
+
+                   
+        
+        <style type="text/css">    
+            .control .selected { border: solid 2px black !important; background-color: #777 !important; color: #fff !important; font-weight: bold !important; } 
+            .chzn-choices, .chzn-choices input { width: 150px !important; }
+            .slide {
+                margin-top: 20px;
+                margin-left: 20px;
+                width: 400px;
+                background: red;               
+            }
+            /*.slide-back {
+                position:absolute;
+                height:100%;  
+            } */   
+            .controls-container { display: inline-block; }
+            .control input.tiny { width: 40px;}
+            .control input.short { width: 80px;}
+            .control input.medium { width: 160px;}
+            .control input.long  { width: 240px;}
+            .control input.extralong  { width: 400px;}
+            .control .text { vertical-align: top; width: 120px; display: inline-block; }
+            .slider .text { padding-top: 20px; }
+            .error { color: Red; }
+        </style>                                 
+
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/themes/ui-lightness/jquery-ui.css" />           
+                        
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                </div>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

@@ -1,0 +1,56 @@
+﻿@model BulldogMVC.Models.ConfigContol
+
+@{
+    ViewBag.Title = "Spinner";
+    double stepInc = 1;
+    double pageInc = 1;
+    switch(Model.Length) 
+    {
+        case 0:
+            stepInc = 1;
+            pageInc = ((float.Parse(Model.Max) - float.Parse(Model.Min)) > 10 ? 10 : 5);            
+            break;
+        case 1:
+            stepInc = 0.1;
+            pageInc = ((float.Parse(Model.Max) - float.Parse(Model.Min)) > 10 ? 10 : 5);            
+            break;            
+        case 2:
+            stepInc = 0.01;
+            pageInc = ((float.Parse(Model.Max) - float.Parse(Model.Min)) > 1 ? 1 : 0.1);            
+            break;        
+    }
+    
+}
+
+<div id="ctrl_@Model.Id" class="control spinnerControl">
+    
+    <span class="text">@Html.DisplayFor(model => model.Text)</span>
+    <span class="description">@Html.DisplayFor(model => model.Description)</span>
+
+    <input type="text" id="spinner_@Model.Id" name="spinner_@Model.Id" value="@Model.GetValue()" />
+    
+    <span class="id" style="display:none;">@Model.Id</span>
+    <span class="min" style="display:none;">@Model.Min</span>
+    <span class="max" style="display:none;">@Model.Max</span>    
+    <span class="stepInc" style="display:none">@stepInc</span>        
+    <span class="pageInc" style="display:none">@pageInc</span>        
+    
+</div>
+
+<script type="text/javascript" language="javascript">
+
+    var item = $("#ctrl_@Model.Id");
+    var _min = $(item).find(".min").text();
+    var _max = $(item).find(".max").text();
+    var _step = $(item).find(".stepInc").text();
+    var _page = $(item).find(".pageInc").text();
+    var id = "#spinner_" + $(item).find(".id").text();
+
+    $(id).spinner({
+        step: _step,
+        largeStep: _page,
+        min: _min,
+        max: _max
+    });    
+       
+</script>

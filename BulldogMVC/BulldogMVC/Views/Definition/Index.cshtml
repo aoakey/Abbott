@@ -1,0 +1,36 @@
+﻿@model BulldogMVC.Models.Definition
+
+@{
+    ViewBag.Title = "Index";    
+}
+
+@using (Html.BeginForm())
+{
+    
+    <h1>@Model.Name</h1>
+    <p>@Model.Description</p>
+    
+    foreach (BulldogMVC.Models.Section section in Model.Sections)
+    {                
+        @Html.Partial("~/Views/Section/Details.cshtml", Model.GetSection(section.Id));
+
+        if (section.Errors.Count > 0)
+        {
+            <div class="error">
+                The following errors occurred:
+                <ul>
+                    @foreach (string err in section.Errors)
+                    {
+                        <li>@err</li>
+                    }
+                </ul>
+            </div>
+        }
+
+    }
+     
+    <hr />
+       
+    <input type="submit" value="Save" />
+    
+}

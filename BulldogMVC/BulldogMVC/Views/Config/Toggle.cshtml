@@ -1,0 +1,34 @@
+﻿@model BulldogMVC.Models.ConfigContol
+
+@{
+    ViewBag.Title = "Toggle";
+    string oncClass = (Model.GetValue() == Model.Max ? "selected" : "");
+    string offcClass = (Model.GetValue() == Model.Min ? "selected" : "");
+}
+
+<div id="ctrl_@Model.Id" class="control time">
+    
+    <span class="text">@Model.Text</span>
+    <span class="description">@Model.Description</span> 
+    <span class="controls-container">
+        <input type="button" class="on toggle-button @oncClass" value="@Model.Max" />
+        <input type="button" class="off toggle-button @offcClass" value="@Model.Min" />
+        <input type="hidden" id="toggle_@Model.Id" name="toggle_@Model.Id" class="ToggleValue" value="@Model.GetValue()" />
+    </span>
+</div>
+
+<script type="text/javascript">
+
+    $("#ctrl_@Model.Id input.on").click(function (item) {
+        $("#ctrl_@Model.Id .on").addClass("selected");
+        $("#ctrl_@Model.Id .off").removeClass("selected");
+        $("#toggle_@Model.Id").val("@Model.Max");
+    });
+
+    $("#ctrl_@Model.Id input.off").click(function (item) {
+        $("#ctrl_@Model.Id .off").addClass("selected");
+        $("#ctrl_@Model.Id .on").removeClass("selected");
+        $("#toggle_@Model.Id").val("@Model.Min");
+    });
+
+</script>

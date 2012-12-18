@@ -1,0 +1,29 @@
+﻿@model BulldogMVC.Models.ConfigContol
+
+@{
+    ViewBag.Title = "Time";
+    string time = Model.GetValue();        
+    string[] timeData = (time.Length > 0 ?  time.Split(char.Parse(":")) : Model.Default.Split(char.Parse(":")));
+    
+    int hour = int.Parse(timeData[0]);
+    int minute = int.Parse(timeData[1]);
+    int division = Model.Length;
+    var modelId = Model.Id;
+}
+
+<div id="ctrl_@Model.Id" class="control time">
+
+    <span class="text">@Model.Text</span>
+    <span class="description">@Model.Description</span>
+    <span class="controls-container">
+
+        <span class="id" style="display:none;">@modelId</span>
+        <span class="_hour" style="display:none;">@hour</span>
+        <span class="_min" style="display:none;">@minute</span>
+        <span class="_div" style="display:none;">@division</span>
+        <input type="hidden" id="time_@Model.Id" name="time_@Model.Id" class="TimeValue" />
+
+        <select class="hours" size="1"></select>
+        <select class="minutes" size="1"></select>
+    </span>
+</div>

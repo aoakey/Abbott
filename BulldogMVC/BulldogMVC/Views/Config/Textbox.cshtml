@@ -1,0 +1,28 @@
+﻿@model BulldogMVC.Models.ConfigContol
+
+@{
+    ViewBag.Title = "Textbox";
+
+}
+
+<div id="ctrl_@Model.Id" class="control time">
+    
+    <span class="text">@Model.Text</span>
+    <span class="description">@Model.Description</span>
+    <span class="controls-container">
+        @{
+            switch(Model.Mode.ToLower()) {
+                case "masked" :
+                    @:<input type="password" class="@Model.Size" name="textbox_@Model.Id" maxlength="@Model.Length" value="@Model.GetValue()"/>
+                    break;
+                case "multiline" :
+                    @:<textarea name="textbox_@Model.Id" class="@Model.Size">@Model.GetValue()</textarea>
+                    break;
+                default:
+                    @:<input type="text" class="@Model.Size" name="textbox_@Model.Id" value="@Model.GetValue()" maxlength="@Model.Length" />
+                    break;
+            }    
+        }
+    </span>
+</div>
+
